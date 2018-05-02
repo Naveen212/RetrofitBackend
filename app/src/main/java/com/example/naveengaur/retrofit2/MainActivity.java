@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Retrofit retrofit = new Retrofit.Builder().baseUrl(Api.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
                 Api api = retrofit.create(Api.class);
-                Call<companyData> call = api.getExamples();
+                Call<companyData> call = api.getExamples("aapl",2);
                 call.enqueue(new Callback<companyData>() {
                     @Override
                     public void onResponse(Call<companyData> call, Response<companyData> response) {

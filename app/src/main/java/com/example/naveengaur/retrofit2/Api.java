@@ -2,6 +2,7 @@ package com.example.naveengaur.retrofit2;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by naveengaur on 2/5/18.
@@ -9,6 +10,6 @@ import retrofit2.http.GET;
 
 public interface Api {
     String BASE_URL="https://hixel-server-prototype.herokuapp.com/";
-    @GET("companydata?ticker=aapl&years=2")
-    Call<companyData> getExamples();
+    @GET("companydata?")
+    Call<companyData> getExamples(@Query("ticker") String ticker,@Query("years") int years);
 }
