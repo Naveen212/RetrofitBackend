@@ -18,6 +18,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
     protected static Thread thread;
 
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<companyData> call, Response<companyData> response) {
                         companyData example = response.body();
-                        Log.d("CIK--------",example.getIdentifiers().getName().toString());
+                        Log.d("CIK--------",example.getIdentifiers().getName());
                         ArrayList<FinancialData> f=example.getFinancialDataEntries();
                         FinancialData f1=f.get(1);
                         Log.d("Year ----",""+f1.getYear());
@@ -58,16 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
 
-                        //Ratios ratios=example.getRatios();
 
-                        //ratios.setCashRatio(example.getRatios().getCashRatio());
-
-
-                        //Log.d("CIK--------",""+example.getXbrlElements().getAssets());
-                        //LinkedHashMap<String,Double> ratios=example.getRatios();
-                        //int count=0;
-                        //for(String key:ratios.keySet())
-                        //{   double value=ratios.get(key);
                     }
 
                     @Override
